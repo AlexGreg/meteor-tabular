@@ -1,10 +1,12 @@
-/* global Package, Npm */
-
 Package.describe({
-  name: 'aldeed:tabular',
-  summary: 'Datatables for large or small datasets in Meteor',
+  name: 'alexgreg:meteor-tabular-semantic',
+  summary: 'Datatables for large or small datasets in Meteor - Semantic-UI integration',
   version: '1.5.1',
-  git: 'https://github.com/aldeed/meteor-tabular.git'
+  // URL to the Git repository containing the source code for this package.
+  git: '',
+  // By default, Meteor will default to using README.md for documentation.
+  // To avoid submitting documentation, set this field to null.
+  documentation: 'README.md'
 });
 
 Npm.depends({
@@ -36,8 +38,8 @@ Package.onUse(function(api) {
   api.addFiles('server/tabular.js', 'server');
   api.addFiles([
     '.npm/package/node_modules/datatables/media/js/jquery.dataTables.js',
-    'client/lib/dataTables.bootstrap.js',
-    'client/lib/dataTables.bootstrap.css',
+    'client/lib/dataTables.semantic-ui.js',
+    'client/lib/dataTables.semantic-ui.css',
     'client/tabular.html',
     'client/util.js',
     'client/tableRecords.js',
@@ -45,23 +47,5 @@ Package.onUse(function(api) {
     'client/pubSelector.js',
     'client/tabular.js'
   ], 'client');
-
-  // images
-  if (typeof api.addAssets === 'function') {
-    api.addAssets([
-      'images/sort_asc.png',
-      'images/sort_asc_disabled.png',
-      'images/sort_both.png',
-      'images/sort_desc.png',
-      'images/sort_desc_disabled.png'
-    ], 'client');
-  } else {
-    api.addFiles([
-      'images/sort_asc.png',
-      'images/sort_asc_disabled.png',
-      'images/sort_both.png',
-      'images/sort_desc.png',
-      'images/sort_desc_disabled.png'
-    ], 'client');
-  }
+  
 });
